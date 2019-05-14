@@ -1,9 +1,10 @@
 # Boris bikes
 
 Makers academy Week 3 - First Project
+Location of challenge repo:
+https://github.com/makersacademy/course/blob/master/boris_bikes/0_challenge_map.md
 
-
-## Table
+## Tables from user stories
  
 | Objects/Noun   | Messages/Verbs |
 | -------------  | -------------  |
@@ -20,7 +21,7 @@ Makers academy Week 3 - First Project
 | good_bike      | good_bike_is_working  |
 
 
-## Diagram
+## Diagram 
 
 need to insert this
 

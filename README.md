@@ -27,7 +27,10 @@ need to insert this
 
 ## Authors
 
-Day 1 - Mel and Lin
-Day 2 - Mel and 
-Day 3 - Mel and 
-Day 4 - Mel and
+- Day 1 - Mel and Lin
+
+- Day 2 - Mel and 
+
+- Day 3 - Mel and 
+
+- Day 4 - Mel and

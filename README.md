@@ -23,7 +23,7 @@ https://github.com/makersacademy/course/blob/master/boris_bikes/0_challenge_map.
 
 ## Diagram 
 
-need to insert this
+![Image from iOS](https://user-images.githubusercontent.com/16557524/57703055-2f576600-7657-11e9-8f68-b240fc11cbac.jpg)
 
 
 ## Authors

@@ -3,10 +3,10 @@ require './lib/dockingstation'
 describe DockingStation do 
   it 'can release bike from docking station' do
     input = DockingStation.new
-    expect(input).respond_to?(:release_bike)
+    expect(input.release_bike).to be_an_instance_of(Bike)
   end
 
-  it 'can release bike from docking station' do
+  it 'expects the bike to be working' do
 
   end
 

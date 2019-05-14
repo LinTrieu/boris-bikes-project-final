@@ -6,4 +6,8 @@ describe DockingStation do
     expect(input).respond_to?(:release_bike)
   end
 
+  it 'can release bike from docking station' do
+
+  end
+
 end

@@ -17,13 +17,22 @@ describe DockingStation do
     docking_station = DockingStation.new
     bike = Bike.new
     output = docking_station.dock(bike)
-    expect(output).to include(bike)
+    expect(output).to eq(1)
   end
 
-    # it 'returns docked bikes' do
-    #   docking_station = DockingStation.new
-    #   bike = Bike.new
-    #   output = docking_station.dock(bike)
-    #   expect(output).to eq(dock)
-    # end
+  it 'can iteract with a method called total' do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    expect(docking_station).to respond_to(:total)
+  end
+
+  it 'can see number of bikes in docking station' do
+    #arrange
+    docking_station = DockingStation.new
+    bike = Bike.new
+    #assert
+    output = 5.times {docking_station.dock(bike)}
+    #assertion
+    expect(output).to eq(5)
+  end
 end

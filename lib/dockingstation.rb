@@ -1,25 +1,20 @@
-# require_relative 'bike'
+require_relative 'bike'
 
 class DockingStation
 
-  attr_reader :bike
+  attr_reader :bike , :total
 
   def initialize
     @total = 0
   end
-  
+
   def release_bike
-    bike = Bike.new
-    return bike
+    Bike.new
   end
 
   def dock(bike)
     @bike = bike
     @total += 1
-  end
-
-  def total
-    puts @total
   end
 
 end

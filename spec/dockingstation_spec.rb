@@ -46,8 +46,8 @@ describe DockingStation do
   it 'can remove bike from the docking station total' do
     docking_station = DockingStation.new
     bike = Bike.new
-    output = 2.times {docking_station.release_bike}
-    expect(output).to eq(-2)
+    output = 3.times {docking_station.release_bike}
+    expect(docking_station.total).to eq(-3)
   end
 
 end

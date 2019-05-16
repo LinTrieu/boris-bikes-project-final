@@ -55,9 +55,6 @@ describe DockingStation do
 
   it 'cannot accept more than 1 docked bike' do
     docking_station.dock(bike) # => should be 2
-    puts "**********"
-    puts docking_station.total
-    puts "**********"
     expect{docking_station.dock(bike)}.to raise_error("Storage full")
   end
 

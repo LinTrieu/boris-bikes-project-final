@@ -30,9 +30,9 @@ describe DockingStation do
   it 'can add bikes to the docking station total' do
     #arrange
     #assert
-    output = 5.times {docking_station.dock(bike)}
+    output = 1.times {docking_station.dock(bike)}
     #assertion
-    expect(output).to eq(5)
+    expect(output).to eq(1)
   end
 
   it 'expects docking station to respond to release bike method' do
@@ -43,18 +43,22 @@ describe DockingStation do
 
   it 'can remove bike from the docking station total' do
     docking_station.dock(bike)
-    docking_station.dock(bike)
     docking_station.release_bike
-    expect(docking_station.total).to eq(1)
+    expect(docking_station.total).to eq(0)
   end
 
   it 'can raise an error when there are no bikes docked' do
     docking_station.dock(bike)
-    p "******"
-    p docking_station.total #=> 1
     docking_station.release_bike
-    p docking_station.total #=> 0
-    p "******"
     expect{docking_station.release_bike}.to raise_error("There are no bikes available")
   end
+
+  it 'cannot accept more than 1 docked bike' do
+    docking_station.dock(bike) # => should be 2
+    puts "**********"
+    puts docking_station.total
+    puts "**********"
+    expect{docking_station.dock(bike)}.to raise_error("Storage full")
+  end
+
 end

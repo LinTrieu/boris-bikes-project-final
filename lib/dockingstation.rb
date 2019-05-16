@@ -11,15 +11,19 @@ class DockingStation
   def release_bike
     if @total <= 0
       raise "There are no bikes available"
-    else 
-      @total -= 1     
+    else
+      @total -= 1
       Bike.new
     end
   end
 
   def dock(bike)
-    @bike = bike
-    @total += 1
+    if @total >= 1
+      raise "Storage full"
+    else
+      @bike = bike
+      @total += 1
+    end
   end
 
 end

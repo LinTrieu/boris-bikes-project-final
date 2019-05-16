@@ -8,7 +8,8 @@ describe DockingStation do
 
   it 'releases bike from docking station' do
     docking_station.dock(bikes) # => total num of bikes should be 1
-    expect(docking_station.release_bike).to be_an_instance_of(Bike)
+    docking_station.release_bike
+    expect(docking_station.total.length).to eq(0)
   end
 
   it 'expects the bike to be working' do
@@ -19,8 +20,8 @@ describe DockingStation do
 
 
   it 'can dock a bike' do
-    output = docking_station.dock(bikes)
-    expect(output).to eq(1)
+    docking_station.dock(bikes)
+    expect(docking_station.total.length).to eq(1)
   end
 
   it 'can iteract with a method called total' do
@@ -44,7 +45,7 @@ describe DockingStation do
   it 'can remove bike from the docking station total' do
     docking_station.dock(bikes)
     docking_station.release_bike
-    expect(docking_station.total).to eq(0)
+    expect(docking_station.total.length).to eq(0)
   end
 
   it 'can raise an error when there are no bikes docked' do
@@ -53,9 +54,8 @@ describe DockingStation do
     expect{docking_station.release_bike}.to raise_error("There are no bikes available")
   end
 
-  it 'cannot accept more than 1 docked bike' do
-    docking_station.dock(bikes) # => should be 2
-    expect{docking_station.dock(bikes)}.to raise_error("Storage full")
+  it 'cannot accept more than 20 docked bike' do
+    expect{21.times{docking_station.dock(bikes)}}.to raise_error("Storage full")
   end
 
 end

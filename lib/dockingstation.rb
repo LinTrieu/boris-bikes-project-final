@@ -5,20 +5,20 @@ class DockingStation
   attr_reader :bikes , :total
 
   def initialize
-    @total = 0
+    @total = []
   end
 
 
   def release_bike
-    raise "There are no bikes available" if @total <= 0 # Guard condition
-    @total -= 1
+    raise "There are no bikes available" if @total.empty? # Guard condition
+    @total.pop()
     Bike.new
   end
 
   def dock(bike)
-    raise "Storage full" if @total >= 1
+    raise "Storage full" if @total.length >= 20
     @bikes = bike
-    @total += 1
+    @total.push(bike)
   end
 
 end

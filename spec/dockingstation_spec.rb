@@ -46,8 +46,21 @@ describe DockingStation do
   it 'can remove bike from the docking station total' do
     docking_station = DockingStation.new
     bike = Bike.new
-    output = 3.times {docking_station.release_bike}
-    expect(docking_station.total).to eq(-3)
+    docking_station.dock(bike)
+    docking_station.dock(bike)
+    docking_station.release_bike
+    expect(docking_station.total).to eq(1)
   end
 
+  it 'can raise an error when there are no bikes docked' do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    docking_station.dock(bike)
+    p "******"
+    p docking_station.total #=> 1
+    docking_station.release_bike
+    p docking_station.total #=> 0
+    p "******"
+    expect {docking_station.release_bike}.to raise_error("There are no bikes available")
+  end
 end

@@ -9,8 +9,12 @@ class DockingStation
   end
 
   def release_bike
-    puts @total -= 1
-    Bike.new
+    if @total < 0   
+      raise "There are no bikes available"
+    else 
+      @total -= 1     
+      Bike.new
+    end
   end
 
   def dock(bike)

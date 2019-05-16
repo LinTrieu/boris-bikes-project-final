@@ -4,22 +4,22 @@ require './lib/bike'
 describe DockingStation do
 
   let(:docking_station) {DockingStation.new}
-  let(:bike) {Bike.new}
+  let(:bikes) {Bike.new}
 
   it 'releases bike from docking station' do
-    docking_station.dock(bike) # => total num of bikes should be 1
+    docking_station.dock(bikes) # => total num of bikes should be 1
     expect(docking_station.release_bike).to be_an_instance_of(Bike)
   end
 
   it 'expects the bike to be working' do
-    docking_station.dock(bike) # => total num of bikes should be 1
+    docking_station.dock(bikes) # => total num of bikes should be 1
     output = docking_station.release_bike
     expect(output).to be_working
   end
 
 
   it 'can dock a bike' do
-    output = docking_station.dock(bike)
+    output = docking_station.dock(bikes)
     expect(output).to eq(1)
   end
 
@@ -30,7 +30,7 @@ describe DockingStation do
   it 'can add bikes to the docking station total' do
     #arrange
     #assert
-    output = 1.times {docking_station.dock(bike)}
+    output = 1.times {docking_station.dock(bikes)}
     #assertion
     expect(output).to eq(1)
   end
@@ -42,20 +42,20 @@ describe DockingStation do
   end
 
   it 'can remove bike from the docking station total' do
-    docking_station.dock(bike)
+    docking_station.dock(bikes)
     docking_station.release_bike
     expect(docking_station.total).to eq(0)
   end
 
   it 'can raise an error when there are no bikes docked' do
-    docking_station.dock(bike)
+    docking_station.dock(bikes)
     docking_station.release_bike
     expect{docking_station.release_bike}.to raise_error("There are no bikes available")
   end
 
   it 'cannot accept more than 1 docked bike' do
-    docking_station.dock(bike) # => should be 2
-    expect{docking_station.dock(bike)}.to raise_error("Storage full")
+    docking_station.dock(bikes) # => should be 2
+    expect{docking_station.dock(bikes)}.to raise_error("Storage full")
   end
 
 end

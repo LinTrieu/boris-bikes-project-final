@@ -2,7 +2,7 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_reader :bike , :total
+  attr_reader :bikes , :total
 
   def initialize
     @total = 0
@@ -17,7 +17,7 @@ class DockingStation
 
   def dock(bike)
     raise "Storage full" if @total >= 1
-    @bike = bike
+    @bikes = bike
     @total += 1
   end
 

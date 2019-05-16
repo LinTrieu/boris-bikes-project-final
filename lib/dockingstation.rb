@@ -9,6 +9,7 @@ class DockingStation
   end
 
   def release_bike
+    puts @total -= 1
     Bike.new
   end
 

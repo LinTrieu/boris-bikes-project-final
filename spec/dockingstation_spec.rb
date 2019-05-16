@@ -26,7 +26,7 @@ describe DockingStation do
     expect(docking_station).to respond_to(:total)
   end
 
-  it 'can see number of bikes in docking station' do
+  it 'can add bikes to the docking station total' do
     #arrange
     docking_station = DockingStation.new
     bike = Bike.new
@@ -35,4 +35,19 @@ describe DockingStation do
     #assertion
     expect(output).to eq(5)
   end
+
+  it 'expects docking station to respond to release bike method' do
+    #arrange
+    docking_station = DockingStation.new 
+    #assertion
+    expect(docking_station).to respond_to(:release_bike)
+  end
+
+  it 'can remove bike from the docking station total' do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    output = 2.times {docking_station.release_bike}
+    expect(output).to eq(-2)
+  end
+
 end

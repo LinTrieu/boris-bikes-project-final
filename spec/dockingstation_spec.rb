@@ -4,14 +4,19 @@ require './lib/bike'
 describe DockingStation do
   it 'releases bike from docking station' do
     docking_station = DockingStation.new
+    bike = Bike.new
+    docking_station.dock(bike) # => total num of bikes should be 1
     expect(docking_station.release_bike).to be_an_instance_of(Bike)
   end
 
   it 'expects the bike to be working' do
     docking_station = DockingStation.new
-    released_bike = docking_station.release_bike
-    expect(released_bike).to be_working
+    bike = Bike.new
+    docking_station.dock(bike) # => total num of bikes should be 1
+    output = docking_station.release_bike
+    expect(output).to be_working
   end
+  
 
   it 'can dock a bike' do
     docking_station = DockingStation.new
@@ -61,6 +66,6 @@ describe DockingStation do
     docking_station.release_bike
     p docking_station.total #=> 0
     p "******"
-    expect {docking_station.release_bike}.to raise_error("There are no bikes available")
+    expect{docking_station.release_bike}.to raise_error("There are no bikes available")
   end
 end

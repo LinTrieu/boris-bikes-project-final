@@ -9,7 +9,7 @@ class DockingStation
   end
 
   def release_bike
-    if @total < 0   
+    if @total <= 0
       raise "There are no bikes available"
     else 
       @total -= 1     

@@ -55,7 +55,8 @@ describe DockingStation do
   end
 
   it 'cannot accept more than 20 docked bike' do
-    expect{21.times{docking_station.dock(bikes)}}.to raise_error 'Docking station full'
+    DockingStation::DEFAULT_CAPACITY.times {docking_station.dock(bikes)}
+    expect{docking_station.dock(bikes)}.to raise_error 'Docking station full'
   end
 
 end

@@ -8,16 +8,14 @@ class DockingStation
     @total = []
   end
 
-
   def release_bike
-    raise "There are no bikes available" if @total.empty? # Guard condition
+    fail "There are no bikes available" if @total.empty? 
     @total.pop()
     Bike.new
   end
 
   def dock(bike)
-    raise "Storage full" if @total.length >= 20
-    @bikes = bike
+    fail 'Docking station full' if @total.length >= 20
     @total.push(bike)
   end
 

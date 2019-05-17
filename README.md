@@ -1,6 +1,6 @@
-# Boris bikes
+# Boris Bike Challenges
 
-Makers academy Week 3 - First Project
+Makers Academy: Week 3 - First Project
 Location of challenge repo:
 https://github.com/makersacademy/course/blob/master/boris_bikes/0_challenge_map.md
 
@@ -32,6 +32,6 @@ https://github.com/makersacademy/course/blob/master/boris_bikes/0_challenge_map.
 
 - Day 2 - Lin and Piers
 
-- Day 3 - Mel and 
+- Day 3 - Lin and Ollie
 
-- Day 4 - Mel and
+- Day 4 - Lin and Ollie

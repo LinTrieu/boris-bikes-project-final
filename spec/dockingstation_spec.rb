@@ -18,7 +18,6 @@ describe DockingStation do
     expect(output).to be_working
   end
 
-
   it 'can dock a bike' do
     docking_station.dock(bikes)
     expect(docking_station.total.count).to eq(1)

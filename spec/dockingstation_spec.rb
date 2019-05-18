@@ -29,16 +29,11 @@ describe DockingStation do
   end
 
   it 'can add bikes to the docking station total' do
-    #arrange
-    #assert
     output = 1.times {docking_station.dock(bikes)}
-    #assertion
     expect(output).to eq(1)
   end
 
   it 'expects docking station to respond to release bike method' do
-    #arrange
-    #assertion
     expect(docking_station).to respond_to(:release_bike)
   end
 
@@ -48,15 +43,28 @@ describe DockingStation do
     expect(docking_station.total.count).to eq(0)
   end
 
-  it 'can raise an error when there are no bikes docked' do
+  it 'raises an error when no bikes are available' do
     docking_station.dock(bikes)
     docking_station.release_bike
     expect{docking_station.release_bike}.to raise_error("No bikes available")
   end
 
-  it 'cannot accept more than 20 docked bike' do
-    DockingStation::DEFAULT_CAPACITY.times {docking_station.dock(bikes)}
+  it 'raises an error when capacity is full' do
+    docking_station.capacity.times {docking_station.dock(bikes)}
     expect{docking_station.dock(bikes)}.to raise_error 'Docking station full'
+  end
+
+  it 'instantiates the class' do
+    expect(docking_station).to be_an_instance_of(DockingStation)
+  end
+
+  it 'has a default capacity if no class arguments are passed' do
+    expect(docking_station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
+
+  it 'instantiates the class with 1 argument' do
+    expect(DockingStation).to receive(:new).with(15)
+    DockingStation.new(15)
   end
 
 end

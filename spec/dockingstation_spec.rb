@@ -67,7 +67,7 @@ describe DockingStation do
     DockingStation.new(15)
   end
 
-  it 'does not release broken bikes from dock' do
+  it 'prevents release of broken bike from docking station' do
     puts "-------------"
     puts bad_bike = Bike.new.report_broken
     puts docking_station.dock(bad_bike)

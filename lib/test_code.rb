@@ -1,6 +1,6 @@
-# require_relative 'dockingstation'
-# require_relative 'bike'
+require_relative 'dockingstation'
+require_relative 'bike'
 
-# bike = Bike.new
+bike = Bike.new
 
-# docking_station = DockingStation.new
+docking_station = DockingStation.new

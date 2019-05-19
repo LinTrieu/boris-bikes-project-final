@@ -2,7 +2,7 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_accessor :bikes , :total , :capacity
+  attr_accessor :total , :capacity
 
   DEFAULT_CAPACITY = 20
 
@@ -13,6 +13,7 @@ class DockingStation
 
   def release_bike
     fail "No bikes available" if empty? 
+    fail "No bikes available" if @broken == true
     @total.pop()
     Bike.new
   end

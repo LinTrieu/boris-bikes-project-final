@@ -1,18 +1,21 @@
 class Bike
 
-    def initialize
-      @broken  
-    end
-    
-    def working?
-        true
-    end
+  attr_accessor :broken
 
-    def report_broken
-      @broken = true
-    end
+  def initialize
+    @broken = broken
+  end
+  
+  def working?
+      true
+  end
 
-    def broken?
-      @broken  
-    end
+  def report_broken
+    @broken = true
+    self
+  end
+
+  def broken?
+    @broken
+  end
 end

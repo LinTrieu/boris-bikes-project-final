@@ -1,5 +1,6 @@
 require './lib/dockingstation'
 require './lib/bike'
+require 'pry'
 
 describe DockingStation do
 
@@ -45,7 +46,7 @@ describe DockingStation do
   it 'raises an error when no bikes are available' do
     docking_station.dock(bikes)
     docking_station.release_bike
-    expect{docking_station.release_bike}.to raise_error("No bikes available")
+    expect{docking_station.release_bike}.to raise_error "No bikes available"
   end
 
   it 'raises an error when capacity is full' do
@@ -66,4 +67,13 @@ describe DockingStation do
     DockingStation.new(15)
   end
 
+  it 'does not release broken bikes from dock' do
+    puts "-------------"
+    puts bad_bike = Bike.new.report_broken
+    puts docking_station.dock(bad_bike)
+    puts "************"
+    p docking_station.total
+    puts "************"
+    expect{docking_station.total.release_bike}.to raise_error "No bikes available"
+  end
 end

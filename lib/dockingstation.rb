@@ -9,11 +9,12 @@ class DockingStation
   def initialize(capacity = DEFAULT_CAPACITY)
     @total = []
     @capacity = capacity
+    @bikes = Bike.new
   end
 
   def release_bike
     fail "No bikes available" if empty? 
-    fail "No bikes available" if @broken == true
+    fail "Broken bike!" if @bikes.report_broken.broken == true
     @total.pop()
     Bike.new
   end

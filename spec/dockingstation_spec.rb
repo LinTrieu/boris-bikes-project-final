@@ -67,13 +67,17 @@ describe DockingStation do
     DockingStation.new(15)
   end
 
-  it 'prevents release of broken bike from docking station' do
-    puts "-------------"
-    puts bad_bike = Bike.new.report_broken
-    puts docking_station.dock(bad_bike)
-    puts "************"
-    p docking_station.total
-    puts "************"
-    expect{docking_station.total.release_bike}.to raise_error "No bikes available"
+  it 'raises an error if user tries to release a broken bike' do
+    bad_bike = Bike.new.report_broken
+    docking_station.dock(bad_bike)
+    expect{docking_station.release_bike}.to raise_error "Broken bike!"
   end
 end
+
+# it 'prevents release of broken bike from docking station' do
+#   bad_bike = Bike.new.report_broken
+#   docking_station.dock(bad_bike)
+#   p docking_station.total
+#   p docking_station.release_bike
+#   expect{docking_station.total.release_bike}.to raise_error "Broken bike!"
+# end

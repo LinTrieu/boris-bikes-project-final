@@ -1,6 +1,6 @@
 class Bike
 
-  attr_accessor :broken
+  attr_accessor :broken , :report_broken
 
   def initialize
     @broken = broken

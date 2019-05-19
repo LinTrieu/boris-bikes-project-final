@@ -5,7 +5,7 @@ require 'pry'
 describe DockingStation do
 
   let(:docking_station) {DockingStation.new}
-  let(:bikes) {Bike.new}
+  let(:bikes) {double :bikes}
 
   it 'releases bike from docking station' do
     docking_station.dock(bikes) # => total num of bikes should be 1

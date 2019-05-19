@@ -3,7 +3,7 @@ class Bike
   attr_accessor :broken , :report_broken
 
   def initialize
-    @broken = broken
+    @broken = 0
   end
   
   def working?
@@ -12,7 +12,7 @@ class Bike
 
   def report_broken
     @broken = true
-    self
+    # self
   end
 
   def broken?

@@ -2,7 +2,7 @@ require_relative 'bike'
 
 class DockingStation
 
-  attr_accessor :total , :capacity
+  attr_accessor :total , :capacity 
 
   DEFAULT_CAPACITY = 20
 
@@ -14,7 +14,7 @@ class DockingStation
 
   def release_bike
     fail "No bikes available" if empty? 
-    fail "Broken bike!" if @bikes.report_broken.broken == true
+    raise "Broken bike!" if broke?
     @total.pop()
     Bike.new
   end
@@ -33,5 +33,12 @@ class DockingStation
   def empty?
     @total.empty? 
   end
+
+  def broke?
+    @bikes.broken == true
+  end
+
+  # @bikes.report_broken == true >> breaks everything
+  # @bikes.broken == true >> does not stop broken bike
 
 end

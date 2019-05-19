@@ -68,16 +68,8 @@ describe DockingStation do
   end
 
   it 'raises an error if user tries to release a broken bike' do
-    bad_bike = Bike.new.report_broken
+    bad_bike = bikes.report_broken
     docking_station.dock(bad_bike)
     expect{docking_station.release_bike}.to raise_error "Broken bike!"
   end
 end
-
-# it 'prevents release of broken bike from docking station' do
-#   bad_bike = Bike.new.report_broken
-#   docking_station.dock(bad_bike)
-#   p docking_station.total
-#   p docking_station.release_bike
-#   expect{docking_station.total.release_bike}.to raise_error "Broken bike!"
-# end

@@ -39,6 +39,6 @@ class DockingStation
   end
 
   # @bikes.report_broken == true >> breaks everything
-  # @bikes.broken == true >> does not stop broken bike
+  # @bikes.broken == true >> does not stop broken
 
 end
